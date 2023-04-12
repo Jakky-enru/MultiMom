@@ -4,6 +4,7 @@
 - Rails6.1.6  
 ## 就職termの技術  
 - devise  
+- Ajaxを使ったコメント機能  
 - お気に入り機能  
 ## カリキュラム外の技術  
 - ransack  
@@ -11,6 +12,7 @@
 $git clone git@github.com:Jakky-enru/MultiMom.git  
 $cd MultiMom  
 $bundle install  
+$yarn install  
 $rails db create && rails db:migrate  
 $rails s  
 
