@@ -5,7 +5,8 @@
 ## 就職termの技術  
 - devise  
 - Ajaxを使ったコメント機能  
-- お気に入り機能  
+- rails_admin  
+- cancancan  
 ## カリキュラム外の技術  
 - ransack  
 ## 実行手順  
