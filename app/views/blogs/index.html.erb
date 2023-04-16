@@ -18,6 +18,8 @@
       </tr>
     <% end %>
   </tbody>
+
+  <%= render 'search', q: @q, url: blogs_path %>
 </table>
 
 <br>
