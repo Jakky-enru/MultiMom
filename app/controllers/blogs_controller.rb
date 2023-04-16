@@ -9,6 +9,9 @@ class BlogsController < ApplicationController
 
   # GET /blogs/1 or /blogs/1.json
   def show
+    @comments = @blog.comments
+    @comment = @blog.comments.build
+  
   end
 
   # GET /blogs/new
@@ -26,7 +29,7 @@ class BlogsController < ApplicationController
 
     respond_to do |format|
       if @blog.save
-        format.html { redirect_to blog_url(@blog), notice: "Blog was successfully created." }
+        format.html { redirect_to blogs_path, notice: "Blog was successfully created." }
         format.json { render :show, status: :created, location: @blog }
       else
         format.html { render :new, status: :unprocessable_entity }
