@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: %i[ show edit update destroy ]
+  before_action :set_blog, only: %i[ edit update destroy ]
   before_action :authenticate_user!#, only: [:new, :create]
 
   # GET /blogs or /blogs.json
@@ -10,6 +10,7 @@ class BlogsController < ApplicationController
 
   # GET /blogs/1 or /blogs/1.json
   def show
+    @blog = Blog.find(params[:id])
     @comments = @blog.comments
     @comment = @blog.comments.build
   
@@ -26,7 +27,9 @@ class BlogsController < ApplicationController
 
   # POST /blogs or /blogs.json
   def create
-    @blog = Blog.new(blog_params)
+    # @blog = Blog.new(blog_params)
+    # @blog.user_id = current_user.id
+    @blog = current_user.blogs.build(blog_params)
 
     respond_to do |format|
       if @blog.save
@@ -37,6 +40,13 @@ class BlogsController < ApplicationController
         format.json { render json: @blog.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def confirm
+    # @blog = Blog.new(blog_params)
+    # @blog.user_id = current_user.id
+    @blog = current_user.blogs.build(blog_params)
+    render :new if @blog.invalid?
   end
 
   # PATCH/PUT /blogs/1 or /blogs/1.json

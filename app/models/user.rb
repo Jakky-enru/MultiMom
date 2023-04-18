@@ -6,4 +6,7 @@ class User < ApplicationRecord
 
   enum role: { parent: 0, child: 1, admin: 2 }, _prefix: true
 
+  has_many :blogs
+  has_many :comments
+  has_many :favorites, dependent: :destroy
 end
