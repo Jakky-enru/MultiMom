@@ -9,10 +9,12 @@
       </ul>
     </div>
   <% end %>
+
   <div class="field">
+  <%= form.label :コメントを訂正 %>
     <%= form.text_area :content, id: "comment_content_#{blog.id}" %>
-    <%= form.label :content %>
   </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

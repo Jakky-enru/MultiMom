@@ -23,4 +23,9 @@
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<%= link_to "ゲスト（親）ログイン", users_guest_parent_sign_in_path, method: :post %><br/ >
+<%= link_to "ゲスト（子）ログイン", users_guest_child_sign_in_path, method: :post %><br/ >
+<%= link_to "ゲスト管理者ログイン", users_guest_admin_sign_in_path, method: :post %><br/ >
+
+
+

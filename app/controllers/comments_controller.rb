@@ -12,6 +12,7 @@ class CommentsController < ApplicationController
       end
     end
   end
+
   def edit
     @comment = @blog.comments.find(params[:id])
     respond_to do |format|
@@ -19,6 +20,7 @@ class CommentsController < ApplicationController
       format.js { render :edit }
     end
   end
+
   def update
     @comment = @blog.comments.find(params[:id])
       respond_to do |format|
@@ -31,6 +33,7 @@ class CommentsController < ApplicationController
         end
       end
     end
+
     def destroy
       @comment = Comment.find(params[:id])
       @comment.destroy
@@ -41,9 +44,11 @@ class CommentsController < ApplicationController
     end
 
   private
+
   def comment_params
     params.require(:comment).permit(:content)
   end
+  
   def set_blog
     @blog = Blog.find(params[:blog_id])
   end
