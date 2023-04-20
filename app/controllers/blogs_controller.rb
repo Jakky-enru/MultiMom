@@ -1,10 +1,20 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: %i[ edit update destroy ]
   before_action :authenticate_user!#, only: [:new, :create]
+  
 
   # GET /blogs or /blogs.json
   def index
-    @q = Blog.ransack(params[:q])
+    if current_user.role == "parent"
+      # parent_user_ids = User.where(role: 'parent').pluck(:id)
+      # @blogs = Blog.where(user_id: parent_user_ids).order(created_at: :desc)
+      @blogs = Blog.joins(:user).where(user: { role: "parent"}).order(created_at: :desc)
+    elsif current_user.role == "child"
+      @blogs = Blog.joins(:user).where(user: { role: "child"}).order(created_at: :desc)
+    else
+      redirect_to new_user_session_path
+    end
+    @q = @blogs.ransack(params[:q])
     @blogs = @q.result(distinct: true).order("created_at desc")
   end
 

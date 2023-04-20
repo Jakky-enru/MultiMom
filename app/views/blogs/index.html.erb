@@ -1,29 +1,33 @@
 <h1>投稿一覧</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>お名前</th>
-      <th>お悩み</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @blogs.each do |blog| %>
+<table>
+<thead>
+<tr>
+<th>お名前</th>
+<th>お悩み</th>
+<th colspan="3"></th>
+</tr>
+</thead>
+
+<tbody>
+  <% @blogs.each do |blog| %>
       <tr>
         <td><%= blog.user.name %></td>
         <td><%= blog.content %></td>
         <td><%= link_to '詳細', blog %></td>
-        <td><%= link_to '編集', edit_blog_path(blog) %></td>
-        <td><%= link_to '削除', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if blog.user == current_user %>
+          <td><%= link_to '編集', edit_blog_path(blog) %></td>
+          <td><%= link_to '削除', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
-  </tbody>
-
-  <%= render 'search', q: @q, url: blogs_path %>
+</tbody>
+  
 </table>
-
-<br>
+  <%= render 'search', q: @q, url: blogs_path %>
+  
+  <%= link_to 'お悩み投稿', new_blog_path %>
+  <br>
 
 
