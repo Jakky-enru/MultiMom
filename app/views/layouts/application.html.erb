@@ -6,22 +6,25 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <div><%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'  %></div>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <%= link_to "プロフィール", user_path(current_user.id) %>
-      <%= link_to "お悩み一覧", blogs_path %>
-      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-        <% if current_user.present? && current_user.role == 'admin' %>
-          <%= link_to '管理者ページ', rails_admin_path %>
-        <% end %>
-    <% else %>
-      <%= link_to '新規登録', new_user_registration_path %></li>
-      <%= link_to 'ログイン', new_user_session_path %></li>
-    <% end %>
+    <header>
+      <% if user_signed_in? %>
+        <%= link_to "プロフィール", user_path(current_user.id) %>
+        <%= link_to "お悩み一覧", blogs_path %>
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+          <% if current_user.present? && current_user.role == 'admin' %>
+            <%= link_to '管理者ページ', rails_admin_path %>
+          <% end %>
+      <% else %>
+        <%= link_to '新規登録', new_user_registration_path %></li>
+        <%= link_to 'ログイン', new_user_session_path %></li>
+      <% end %>
+    </header>
+
 
     <% if notice %>
       <p class="alert alert-notice"><%= notice %></p>
@@ -30,5 +33,6 @@
       <p class="alert alert-error"><%= alert %></p>
     <% end %>
     <%= yield %>
+    <footer></footer>
   </body>
 </html>
