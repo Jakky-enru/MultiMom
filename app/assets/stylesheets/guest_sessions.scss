@@ -1,3 +1,197 @@
 // Place all the styles related to the guest_sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+// <div class="container">
+//   <div class="blog-text">
+//     <p><strong>内容</strong>:<%= @blog.content %></p>
+//   </div>
+
+//   <p>コメント一覧</p>
+
+//   <!-- このcomments_areaというHTMLのidを取得して、そのdivの部分だけを更新する -->
+//   <div id="comments_area">
+//     <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
+//     <%= render partial: 'comments/index', locals: { comments: @comments, blog: @blog } %>
+//   </div>
+
+//   <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
+//   <%= render partial: 'comments/form', locals: { comment: @comment, blog: @blog } %>
+  
+//   <%= link_to '戻る', blogs_path %>
+// </div>
+
+
+
+
+
+
+
+// <ul>
+//   <% comments.each do |comment| %>
+//     <% if comment.id.present? %>
+//       <li>
+//         <div class="comment-content" id ="this_comment_<%= comment.id %>"></div>
+//           <p><%= comment.user.name %></p>
+//           <p><%= comment.content %></p>
+//           <% if comment.user == current_user %>
+//             <p><%= link_to "コメント編集", edit_blog_comment_path(blog, comment), remote: true %></p>
+//             <p><%= link_to "コメント削除", blog_comment_path(comment.blog_id, comment.id), method: :delete, remote: true,
+//                                         data: { confirm: "本当に削除しますか?"} %></p>
+//           <% end %>
+          
+//           <% unless comment.user_id == current_user.id %>
+//             <% if Favorite.where(comment_id: comment.id).present? %>
+//               <p><%= link_to 'お気に入り解除する', favorite_path(id: Favorite.find_by(comment_id: comment.id)), method: :delete %></p>
+//             <% else %>
+//               <p><%= link_to "お気に入り", favorites_path(comment_id: comment.id, blog_id: blog.id), method: :post, remote: true %></p>
+//             <% end %>
+//           <% end %>
+//       </li>
+//     <% end %>
+//   <% end %>
+// </ul>
+
+
+
+// <%= form_with(model: [blog, comment], local: false) do |form| %>
+//   <% if comment.errors.any? %>
+//     <div id="error_explanation">
+//       <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+//       <ul>
+//       <% comment.errors.full_messages.each do |message| %>
+//         <li><%= message %></li>
+//       <% end %>
+//       </ul>
+//     </div>
+//   <% end %>
+
+//   <div class="field">
+//     <%= form.label :コメント %>
+//     <%= form.text_area :content %>
+//   </div>
+
+//   <div class="actions">
+//     <%= form.submit %>
+//   </div>
+// <% end %>
+          
+
+// <%= form_with(model: [blog, comment], local: false) do |form| %>
+//   <% if comment.errors.any? %>
+//     <div id="error_explanation">
+//       <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+//       <ul>
+//       <% comment.errors.full_messages.each do |message| %>
+//         <li><%= message %></li>
+//       <% end %>
+//       </ul>
+//     </div>
+//   <% end %>
+
+//   <div class="field">
+//   <%= form.label :コメントを訂正 %>
+//     <%= form.text_area :content, id: "comment_content_#{blog.id}" %>
+//   </div>
+
+//   <div class="actions">
+//     <%= form.submit %>
+//   </div>
+// <% end %>
+
+
+
+
+// <%= form_with(model: blog) do |form| %>
+//   <% if blog.errors.any? %>
+//     <div id="error_explanation">
+//       <h2><%= pluralize(blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
+
+//       <ul>
+//         <% blog.errors.each do |error| %>
+//           <li><%= error.full_message %></li>
+//         <% end %>
+//       </ul>
+//     </div>
+//   <% end %>
+
+//   <div class="field">
+//     <%= form.label :投稿内容 %>
+//     <%= form.text_area :content %>
+//   </div>
+
+//   <div class="actions">
+//     <%= form.submit %>
+//   </div>
+// <% end %>
+
+
+
+
+// <h1><%= @user.name %>のページ</h1>
+
+// <p>メールアドレス: <%= @user.email %></p>
+
+// <table>
+//   <thead>
+//     <tr>
+//       <th>お悩み</th>
+//       <th colspan="3"></th>
+//     </tr>
+//   </thead>
+
+//   <tbody>
+//     <% @user.blogs.each do |blog| %>
+//       <tr>
+//         <td><%= blog.content %></td>
+//       </tr>
+//     <% end %>
+//   </tbody>
+// </table>
+
+
+
+
+// <%= link_to '編集', edit_user_path(@user.id) %>
+
+
+
+
+
+
+
+// <%= stylesheet_link_tag 'users' %>
+
+// <div class="detail-container">
+//   <div class="detail-item">
+//     <div class="image-info">
+//       <h1><%= @user.name %>さんのプロフィール編集</h1>
+
+//       <%= form_with model: @user, local: true do |f| %>
+//         <div class="field">
+//           <%= f.label :name %>
+//           <%= f.text_field :name, class: 'form-control mb-3' %>
+//         </div>
+
+//         <div class="field">
+//           <%= f.label :email %>
+//           <%= f.email_field :email, class: 'form-control mb-3' %>
+//         </div>
+
+//         <div class="field">
+//           <%= f.label :password %>
+//           <%= f.text_field :password %>
+//         </div>
+
+//         <div class="field">
+//           <%= f.label :password_confirmation %>
+//           <%= f.text_field :password_confirmation %>
+//         </div>
+
+//         <%= f.submit "更新", class: "submit-button"%>
+//       <%end%>
+//       <%= link_to 'プロフィールに戻る', user_path(current_user.id), class: "submit-button" %>
+//     </div>
+//   </div>
+// </div>

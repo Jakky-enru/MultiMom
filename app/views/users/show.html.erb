@@ -1,25 +1,29 @@
-<h1><%= @user.name %>のページ</h1>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><%= @user.name %>のページ</h5>
+          <p class="card-text mb-0">メールアドレス:</p>
+          <p class="card-text"><%= @user.email %></p>
+          <%= link_to '編集', edit_user_path(@user.id), class: 'btn btn-primary' %>
+          <%= link_to '戻る', blogs_path, class: 'btn btn-secondary mt-3' %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <h4 class="mb-4">お悩みリスト</h4>
+      <ul class="list-group">
+        <% @user.blogs.each do |blog| %>
+          <li class="list-group-item"><%= blog.content %></li>
+            <td><%= link_to '詳細', blog, class: 'btn btn-primary btn-sm' %></td>
+                <% if blog.user == current_user %>
+                  <td><%= link_to '編集', edit_blog_path(blog), class: 'btn btn-warning btn-sm' %></td>
+                  <td><%= link_to '削除', blog, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %></td>
+                <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
 
-<p>メールアドレス: <%= @user.email %></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>お悩み</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @user.blogs.each do |blog| %>
-      <tr>
-      <%= blog.content %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-
-
-
-<%= link_to '編集', edit_user_path(@user.id) %>

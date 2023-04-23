@@ -1,3 +1,58 @@
-// Place all the styles related to the comments controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.list-group {
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.list-group-item {
+  border-color: rgba(0, 0, 0, 0.125);
+  border-width: 1px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.025);
+  }
+}
+
+.comment-content {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.btn {
+  margin-top: 0.5rem;
+  margin-right: 0.5rem;
+  font-weight: 500;
+}
+
+.btn-outline-primary {
+  &:hover {
+    background-color: #0d6efd;
+    color: #fff;
+    border-color: #0d6efd;
+  }
+}
+
+.btn-outline-secondary {
+  &:hover {
+    background-color: #6c757d;
+    color: #fff;
+    border-color: #6c757d;
+  }
+}
+
+.btn-outline-danger {
+  &:hover {
+    background-color: #6c757d;
+    color: #fff;
+    border-color: #6c757d;
+  }
+}
+
+.btn-outline-warning {
+  &:hover {
+    background-color: #ffc107;
+    color: #212529;
+    border-color: #ffc107;
+  }
+}

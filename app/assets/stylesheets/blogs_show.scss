@@ -1,0 +1,72 @@
+// Variables
+$primary-color: #5c6bc0;
+$secondary-color: #7986cb;
+$light-color: #f8f9fa;
+$dark-color: #303f9f;
+$border-color: #e5e5e5;
+
+// Container
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+// Card
+.card {
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: $light-color;
+
+  .card-body {
+    padding: 1.5rem;
+  }
+
+  .card-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: $primary-color;
+    margin-bottom: 1rem;
+  }
+
+  .card-text {
+    font-size: 1rem;
+    color: $dark-color;
+    line-height: 1.5;
+  }
+}
+
+// Comments
+#comments_area {
+  margin-top: 2rem;
+
+  .comment {
+    background-color: $light-color;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+  }
+}
+
+// Buttons
+.btn {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  &.btn-secondary {
+    color: #fff;
+    background-color: $secondary-color;
+
+    &:hover {
+      background-color: darken($secondary-color, 10%);
+    }
+  }
+}

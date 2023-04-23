@@ -1,18 +1,32 @@
-<div class="container">
-  <div class="blog-text">
-    <p><strong>内容</strong>:<%= @blog.content %></p>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.4.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <%= stylesheet_link_tag 'blogs_show', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <div class="card mt-5">
+          <div class="card-body">
+            <h2 class="card-title">内容</h2>
+            <p class="card-text"><%= @blog.content %></p>
+          </div>
+        </div>
+        <h2 class="mt-5">コメント一覧</h2>
+
+        <div id="comments_area">
+          <%= render partial: 'comments/index', locals: { comments: @comments, blog: @blog } %>
+        </div>
+
+        <%= render partial: 'comments/form', locals: { comment: @comment, blog: @blog } %>
+
+        <%= link_to '戻る', blogs_path, class: 'btn btn-secondary mt-3' %>
+      </div>
+    </div>
   </div>
-
-  <p>コメント一覧</p>
-
-  <!-- このcomments_areaというHTMLのidを取得して、そのdivの部分だけを更新する -->
-  <div id="comments_area">
-    <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
-    <%= render partial: 'comments/index', locals: { comments: @comments, blog: @blog } %>
-  </div>
-
-  <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
-  <%= render partial: 'comments/form', locals: { comment: @comment, blog: @blog } %>
-  
-  <%= link_to '戻る', blogs_path %>
-</div>
+</body>
+</html>
