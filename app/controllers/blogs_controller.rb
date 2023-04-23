@@ -4,11 +4,11 @@ class BlogsController < ApplicationController
   
   def index
     if current_user.role == "parent"
-      @blogs = Blog.joins(:user).where(user: { role: "parent"}).order(created_at: :desc)
+      @blogs = Blog.joins(:user).where(user: { role: "parent"}).order(created_at: :desc).page(params[:page]).per(5)
     elsif current_user.role == "child"
-      @blogs = Blog.joins(:user).where(user: { role: "child"}).order(created_at: :desc)
+      @blogs = Blog.joins(:user).where(user: { role: "child"}).order(created_at: :desc).page(params[:page]).per(5)
     elsif current_user.role == "admin"
-      @blogs = Blog.joins(:user).order(created_at: :desc)
+      @blogs = Blog.joins(:user).order(created_at: :desc).page(params[:page]).per(5)
     end
     @q = @blogs.ransack(params[:q])
     @blogs = @q.result(distinct: true).order("created_at desc")
