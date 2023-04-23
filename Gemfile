@@ -17,6 +17,7 @@ gem 'rexml'
 gem 'rails_admin'
 gem 'cancancan'
 gem 'ransack'
+gem 'kaminari'
 gem 'bootstrap-sass', '~> 3.3.6'
 
 group :development, :test do
