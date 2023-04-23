@@ -1,0 +1,37 @@
+#error_explanation {
+  margin-bottom: 1rem;
+}
+
+#error_explanation h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+#error_explanation ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+// フォームのフィールド
+.form-label {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.mb-3 {
+  max-width: 50%; // フィールドの幅を制限
+  margin-bottom: 1rem;
+}
+
+.form-control {
+  margin-bottom: 1rem;
+  resize: vertical;
+}
+
+// ボタン
+.actions {
+  display: flex;
+  justify-content: flex-start;
+}

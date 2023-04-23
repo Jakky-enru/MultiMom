@@ -1,34 +1,30 @@
 <%= stylesheet_link_tag 'users' %>
 
-<div class="detail-container">
-  <div class="detail-item">
-    <div class="image-info">
-      <h1><%= @user.name %>さんのプロフィール編集</h1>
+<div class="container mt-5">
+  <h1><%= @user.name %>さんのプロフィール編集</h1>
 
-      <%= form_with model: @user, local: true do |f| %>
-        <div class="field">
-          <%= f.label :name %>
-          <%= f.text_field :name, class: 'form-control mb-3' %>
-        </div>
-
-        <div class="field">
-          <%= f.label :email %>
-          <%= f.email_field :email, class: 'form-control mb-3' %>
-        </div>
-
-        <div class="field">
-          <%= f.label :password %>
-          <%= f.text_field :password %>
-        </div>
-
-        <div class="field">
-          <%= f.label :password_confirmation %>
-          <%= f.text_field :password_confirmation %>
-        </div>
-
-        <%= f.submit "更新", class: "submit-button"%>
-      <%end%>
-      <%= link_to 'プロフィールに戻る', user_path(current_user.id), class: "submit-button" %>
+  <%= form_with model: @user, local: true, html: { class: 'mt-4' } do |f| %>
+    <div class="form-group">
+      <%= f.label :お名前, class: 'form-label' %>
+      <%= f.text_field :name, class: 'form-control mb-3' %>
     </div>
-  </div>
+
+    <div class="form-group">
+      <%= f.label :email, class: 'form-label' %>
+      <%= f.email_field :email, class: 'form-control mb-3' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password, class: 'form-label' %>
+      <%= f.password_field :password, class: 'form-control mb-3' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password_confirmation, class: 'form-label' %>
+      <%= f.password_field :password_confirmation, class: 'form-control mb-3' %>
+    </div>
+
+    <%= f.submit "更新", class: "btn btn-primary mr-2" %>
+    <%= link_to '戻る', user_path(current_user.id), class: "btn btn-secondary" %>
+  <% end %>
 </div>
