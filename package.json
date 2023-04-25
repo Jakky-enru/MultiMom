@@ -15,5 +15,11 @@
   "version": "0.1.0",
   "devDependencies": {
     "webpack-dev-server": "^3"
+  },
+  "resolutions": {
+    "rails_admin/@fortawesome/fontawesome-free": "^5.15.0"
+  },
+  "engines": {
+  "node": "16.x"
   }
 }
