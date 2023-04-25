@@ -327,7 +327,11 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootsnap (>= 1.4.4)
+<<<<<<< HEAD
   bootstrap
+=======
+  bootstrap-sass (~> 3.4.1)
+>>>>>>> origin/master
   byebug
   cancancan
   capybara (>= 3.26)
