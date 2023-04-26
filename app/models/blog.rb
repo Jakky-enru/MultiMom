@@ -1,6 +1,7 @@
 class Blog < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
+  validates :content, presence: true
 
   def self.ransackable_attributes(auth_object = nil)
     %w[content]

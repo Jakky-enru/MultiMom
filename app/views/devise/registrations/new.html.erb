@@ -1,16 +1,17 @@
 <div class="box1">
+
   <div class="box-inner">
     <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
     <h1>新規登録</h1>
     <div class="box-name">
       <%= f.label :name, "名前" %><br />
-      <%= f.text_field :name, autofocus: true %>
+      <%= f.text_field :name, autofocus: true, placeholder: "（例）鈴木一郎" %>
     </div>
 
     <div class="box-email">
       <%= f.label :email, "Eメール" %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "（例）○○○○@dic.com" %>
     </div>
 
     <div class="box-password">
@@ -18,12 +19,12 @@
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> 文字以上)</em>
       <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password" %>
+      <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード" %>
     </div>
 
     <div class="box-password">
       <%= f.label :password_confirmation, "パスワード(確認)" %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワード（確認）" %>
     </div>
 
     <div class="field">

@@ -33,9 +33,16 @@ end
 end
 
 6.times do |n|
-  Comment.create!(
+  comment = Comment.create!(
     content: "comment#{n + 1}",
     user_id: n + 1,
     blog_id: n + 1
   )
+
+  user = User.find(n + 1)
+
+  Favorite.create!(
+      user_id: user.id,
+      comment_id: comment.id
+    )
 end
