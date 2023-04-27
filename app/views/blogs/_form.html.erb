@@ -1,7 +1,7 @@
 <%= form_with(model: blog, local: true, html: { class: 'form-group' }) do |form| %>
   <% if blog.errors.any? %>
     <div id="error_explanation" class="alert alert-danger">
-      <h2><%= pluralize(blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
+      <h2><%= pluralize(blog.errors.count, "error") %> "お悩みを投稿できませんでした"</h2>
 
       <ul>
         <% blog.errors.each do |error| %>
