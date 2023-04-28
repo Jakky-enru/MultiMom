@@ -17,6 +17,7 @@
 @import "bootstrap";
 @import "signup";
 @import "blogs_show";
+@import "blogs_index";
 @import "comments";
 @import "comment_form";
 @import "comment_edit_form";
@@ -57,6 +58,7 @@ body {
     content: "●"; 
     margin-right: 5px;
   }
+
   
   footer {
     background-color: black;
