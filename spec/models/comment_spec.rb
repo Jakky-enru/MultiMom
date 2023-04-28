@@ -8,5 +8,14 @@ RSpec.describe Comment, type: :model do
         expect(comment).not_to be_valid
       end
     end
+
+    context 'コメントの内容が空ではない場合' do
+      let!(:user1) { FactoryBot.create(:user, role: 'parent') }
+      let!(:blog) { FactoryBot.create(:blog, user: user1) }
+      it 'バリデーションにひっかからない' do
+        comment = Comment.new(content: 'がんばれ',blog: blog, user: user1)
+        expect(comment).to be_valid
+      end
+    end
   end
 end
