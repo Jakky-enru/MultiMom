@@ -29,7 +29,7 @@
 
     <div class="field">
     <%= f.label :権限 %><br />
-    <%= f.select :role, options_for_select(User.roles.except('admin').keys.map { |key| [t("user.roles.#{key}"), key] }), {}, { class: "form-select" } %>
+    <%= f.select :role, options_for_select(User.roles.keys.map { |key| [t("user.roles.#{key}"), key] }), {}, { class: "form-select" } %>
     </div>
 
     <div class="box-login">

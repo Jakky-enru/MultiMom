@@ -1,7 +1,7 @@
 <%= form_with(model: blog, local: true, html: { class: 'form-group' }) do |form| %>
   <% if blog.errors.any? %>
     <div id="error_explanation" class="alert alert-danger">
-      <h2><%= pluralize(blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
+      <h2><%= pluralize(blog.errors.count, "エラー") %> "お悩みを投稿できませんでした"</h2>
 
       <ul>
         <% blog.errors.each do |error| %>
@@ -11,12 +11,12 @@
     </div>
   <% end %>
 
-  <div class="mb-3">
+  <div class="mb-3 text_area">
     <%= form.label :投稿内容, class: 'form-label' %>
     <%= form.text_area :content, class: 'form-control', placeholder: "（例）子育てのアドバイスが欲しいです" %>
   </div>
 
   <div class="actions">
-    <%= form.submit class: 'btn btn-primary' %>
+    <%= form.submit class: 'btn btn-primary touroku_button' %>
   </div>
 <% end %>
